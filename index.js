@@ -36,7 +36,7 @@ const corstOptions = {
   optionSuccessStatus: true
 }
 
-app.use(cors(corstOptions))
+app.use(cors())
 app.use(express.json())
 
 app.use('/api/auth', authRoute)

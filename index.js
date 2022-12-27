@@ -25,9 +25,7 @@ mongoose.connection.on("disconnected", () => {
   });
 
 //middleware
-app.use(cors({
-  origin: ["tua-mern-app.onrender.com"]
-}))
+app.use(cors())
 app.use(express.json())
 
 app.use('/api/auth', authRoute)

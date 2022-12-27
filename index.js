@@ -39,6 +39,11 @@ const corstOptions = {
 app.use(cors())
 app.use(express.json())
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/public', 
+'index.html'));
+});
+
 app.use('/api/auth', authRoute)
 app.use('/api/product', productRoute)
 app.use('/api/user', userRoute)

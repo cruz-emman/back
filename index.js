@@ -4,7 +4,7 @@ import cors from 'cors'
 import authRoute from './route/auth.js'
 import productRoute from './route/product.js'
 import userRoute from './route/user.js'
-const PORT = 5000
+const PORT = process.env.PORT || 8800
 
 const app = express()
 
@@ -47,5 +47,5 @@ app.use((err, req, res, next) => {
 
 app.listen(8800, '0.0.0.0', () =>{
     dbConnect()
-    console.log(`Connected to Backend on PORT: http://localhost:${8800}`)
+    console.log(`Connected to Backend on PORT: http://localhost:${PORT}`)
 })

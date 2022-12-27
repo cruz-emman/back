@@ -29,7 +29,14 @@ mongoose.connection.on("disconnected", () => {
   });
 
 //middleware
-app.use(cors())
+
+const corstOptions = {
+  origin: 'https://mern-tua-ebenta.onrender.com',
+  credentials: true,
+  optionSuccessStatus: true
+}
+
+app.use(cors(corstOptions))
 app.use(express.json())
 
 app.use('/api/auth', authRoute)

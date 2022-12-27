@@ -30,15 +30,13 @@ mongoose.connection.on("disconnected", () => {
 
 //middleware
 
-const corstOptions = {
-  origin: 'https://mern-tua-ebenta.onrender.com',
-  credentials: true,
-  optionSuccessStatus: true
-}
+
 
 app.use(cors())
 app.use(express.json())
-
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 app.use('/api/auth', authRoute)
 app.use('/api/product', productRoute)
 app.use('/api/user', userRoute)
